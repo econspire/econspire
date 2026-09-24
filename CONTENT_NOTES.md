@@ -15,4 +15,4 @@ The site copy was checked against the supplied Telegram Desktop export, `message
 - No currently open event registration is claimed. Registration deadlines in July and for the September 5, 13 and 20 events have passed.
 - The corporate round on the old site used a July registration announcement (message 71); it is not presented as currently open.
 - Old prizes, volunteer age limits, participation fees and team sizes are not stated as universal rules because announcements vary by event.
-- The site highlights September activity briefly and keeps upcoming events as the main destination. `UPCOMING_EVENTS` stays empty until a later confirmed announcement is supplied.
+- The site highlights September activity briefly and keeps upcoming events as the main destination. Future events now come from published records in Firestore; none were invented or prefilled.

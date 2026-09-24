@@ -10,10 +10,11 @@ Then open `http://127.0.0.1:4173/`. No package installation or build step is req
 
 - `dist/index.html` contains the page structure and content.
 - `dist/styles.css` contains the visual system and responsive layouts.
-- `dist/app.js` controls the case guide, menu, scroll effects and future event list.
+- `dist/app.js` controls the case guide, menu, scroll effects and photo carousel.
+- `dist/events-firebase.js` reads published future events from Cloud Firestore.
 - `dist/blank.html` is the temporary destination for participation, volunteer and ambassador links.
 - `dist/assets/` contains the supplied Econspire images and recent event photos from the Telegram export.
 
-The confirmed upcoming event data lives in `UPCOMING_EVENTS` at the top of `dist/app.js`. It is empty because the supplied channel export contains no event after 20 September 2026. Add records only after a new announcement is verified. The source of future event updates can be connected later without changing the page layout.
+New event records are created in the separate Econspire Manager app and stored in Firebase project `econspire-4436d`. The public page shows only records marked `published` whose date has not passed in Uzbekistan. No event was prefilled because the supplied channel export contains no future announcement after 20 September 2026.
 
 See `CONTENT_NOTES.md` for the source and recency decisions behind the current copy.

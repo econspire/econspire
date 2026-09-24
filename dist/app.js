@@ -1,8 +1,3 @@
-/* The channel export supplied on 24 September 2026 has no future event announcement.
-   Add confirmed future events here when their information source is connected.
-   Shape: {title, city, dateLabel, dateISO, format, details, eligibility, registrationUrl}. */
-const UPCOMING_EVENTS = [];
-
 const stages = [
   {word:'DISCOVER', kicker:'THE START', description:'New event details are posted on Econspire’s channel. Check the city, registration link, format and deadline before joining.'},
   {word:'RESEARCH', kicker:'THE BRIEF', description:'The case defines the problem. Read the instructions carefully, look for evidence and note which assumptions your team is making.'},
@@ -36,45 +31,6 @@ tabs.forEach((tab, index) => {
   });
 });
 setStage(0);
-
-const eventList = document.querySelector('#event-list');
-const eventEmpty = document.querySelector('#event-empty');
-const confirmedEvents = UPCOMING_EVENTS.filter(event => event.title && event.dateLabel && event.city);
-document.querySelector('#event-count').textContent = String(confirmedEvents.length).padStart(2, '0');
-if (confirmedEvents.length) {
-  eventEmpty.hidden = true;
-  confirmedEvents.forEach(event => {
-    const card = document.createElement('article');
-    card.className = 'event-card reveal';
-    const when = document.createElement('time');
-    when.textContent = event.dateLabel;
-    if (event.dateISO) when.dateTime = event.dateISO;
-    const detail = document.createElement('div');
-    const city = document.createElement('span');
-    city.className = 'event-meta';
-    city.textContent = event.city + (event.format ? ' / ' + event.format : '');
-    const title = document.createElement('h3');
-    title.textContent = event.title;
-    const description = document.createElement('p');
-    description.textContent = event.details || '';
-    detail.append(city, title, description);
-    if (event.eligibility) {
-      const eligibility = document.createElement('p');
-      eligibility.textContent = 'Who can join: ' + event.eligibility;
-      detail.append(eligibility);
-    }
-    card.append(when, detail);
-    if (event.registrationUrl) {
-      const link = document.createElement('a');
-      link.href = event.registrationUrl;
-      link.textContent = 'Event details ↗';
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      card.append(link);
-    }
-    eventList.append(card);
-  });
-}
 
 const menuButton = document.querySelector('.menu-toggle');
 const mobileNav = document.querySelector('#mobile-nav');
